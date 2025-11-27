@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact - Portfolio</title>
+  <link rel="stylesheet" href="../styles/navbar.css">
+  <link rel="stylesheet" href="../styles/contact.css">
+</head>
+<body>
+  <header>
+    <h1>Contact Me</h1>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="projects.php">Projects</a></li>
+        <li><a href="design.html">Graphics Design</a></li>
+        <li><a href="research.html">Research & Publications</a></li>
+        <li><a href="resume.html">Resume/CV</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section>
+    <h2>Get in Touch</h2>
+    <form action="contact.php" method="POST">
+      <label>Name:</label><br>
+      <input type="text" name="name" required><br><br>
+
+      <label>Email:</label><br>
+      <input type="email" name="email" required><br><br>
+
+      <label>Message:</label><br>
+      <textarea name="message" rows="5" required></textarea><br><br>
+
+      <button type="submit">Send Message</button>
+    </form>
+
+    <h3>Or connect with me:</h3>
+    <p>
+      <a href="https://github.com/yourgithub">GitHub</a> | 
+      <a href="https://linkedin.com/in/yourlinkedin">LinkedIn</a> | 
+      <a href="mailto:your@email.com">Email</a>
+    </p>
+  </section>
+
+  <footer>
+    <p>© 2025 Your Name</p>
+  </footer>
+</body>
+</html>

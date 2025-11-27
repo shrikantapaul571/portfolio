@@ -1,0 +1,90 @@
+/* ===== Home Page (Hero Section) ===== */
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: #1e1e1e;
+  color: #ddd;
+  margin: 0;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 12%;
+  min-height: 100vh;
+  background: #1e1e1e;
+  color: #fff;
+}
+
+.hero-text {
+  flex: 1;
+  text-align: left;
+}
+
+.hero-text h2 {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.roles {
+  font-size: 1.3rem;
+  margin-top: 10px;
+  color: #bbb;
+}
+
+.roles i {
+  color: #ff9800;
+  margin-right: 6px;
+}
+
+
+.hero .highlight {
+  color: #ff5722;
+}
+
+.hero .btn {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 12px 28px;
+  background: #ff5722;
+  color: #fff;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s, transform 0.3s;
+}
+.hero .btn:hover {
+  background: #e68900;
+  transform: scale(1.05);
+}
+
+/* Social Links */
+.social-links {
+  margin-top: 25px;
+}
+.social-links a {
+  display: inline-block;
+  margin-right: 18px;
+  font-size: 1.8rem;
+  color: #ff9800;
+  transition: color 0.3s, transform 0.3s;
+}
+.social-links a:hover {
+  color: #fff;
+  transform: scale(1.2);
+}
+
+/* Image side */
+.hero-image {
+  flex: 1;
+  text-align: right;
+}
+.hero-image img {
+  border-radius: 50%;
+  width: 75%;
+  max-width: 350px;
+  object-fit: cover;
+  border: 4px solid #ff9800;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}

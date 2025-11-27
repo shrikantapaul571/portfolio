@@ -1,0 +1,30 @@
+[
+  {
+    "title": "BookBin Website",
+    "description": "A web platform for coin-based book buying and exchanges, built with HTML, CSS, JS, and PHP.",
+    "github": "https://github.com/your-username/bookbin-web",
+    "demo": "https://bookbin.example.com",
+    "video": ""
+  },
+  {
+    "title": "BookBin App",
+    "description": "A mobile app version of BookBin developed in Flutter with Firebase backend.",
+    "github": "https://github.com/your-username/bookbin-app",
+    "demo": "",
+    "video": ""
+  },
+  {
+    "title": "SmartFarmX App",
+    "description": "IoT-based smart farming solution with real-time monitoring and automation.",
+    "github": "https://github.com/your-username/smartfarmx",
+    "demo": "",
+    "video": ""
+  },
+  {
+    "title": "NeonTech Website",
+    "description": "A modern company website built with responsive design principles.",
+    "github": "https://github.com/your-username/neontech-web",
+    "demo": "https://neontech.example.com",
+    "video": ""
+  }
+]

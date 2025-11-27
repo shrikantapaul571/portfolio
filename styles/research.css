@@ -1,0 +1,67 @@
+/* ===== Research & Publications Page ===== */
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: #1e1e1e;
+  color: #ddd;
+  margin: 0;
+}
+
+.research-page {
+  max-width: 900px;
+  margin: auto;
+  padding: 50px 20px;
+  text-align: center;
+  min-height: 100vh;
+}
+
+.research-page h2 {
+  color: #ff5722;
+  margin-bottom: 40px;
+  font-size: 2rem;
+  border-left: 6px solid #ff9800;
+  display: inline-block;
+  padding-left: 10px;
+}
+
+.paper-card {
+  background: #2a2a2a;
+  padding: 20px;
+  margin-bottom: 25px;
+  border-radius: 10px;
+  text-align: left;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  transition: transform 0.3s, background 0.3s;
+}
+
+.paper-card:hover {
+  transform: translateY(-5px);
+  background: #333;
+}
+
+.paper-card h3 {
+  margin: 0 0 10px;
+  color: #ff9800;
+  font-size: 1.2rem;
+}
+
+.paper-card p {
+  margin: 0 0 15px;
+  font-size: 0.95rem;
+  color: #ccc;
+}
+
+/* Button-style links */
+.btn-link {
+  display: inline-block;
+  padding: 8px 14px;
+  background: #ff5722;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.btn-link:hover {
+  background: #e64a19;
+}

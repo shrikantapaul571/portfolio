@@ -1,0 +1,92 @@
+/* ===== About Page Styles ===== */
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: #1e1e1e;
+  color: #ddd;
+  margin: 0;
+}
+
+main {
+  max-width: 1000px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+/* Section Headings */
+section h2 {
+  color: #ff5722;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  border-left: 6px solid #ff9800;
+  padding-left: 10px;
+}
+
+/* Intro Section */
+.intro p {
+  margin-bottom: 15px;
+  text-align: justify;
+  line-height: 1.7;
+  color: #eee;
+}
+
+/* ===== Activities + Education ===== */
+.timeline {
+  position: relative;
+  margin-left: 25px;
+  padding-left: 20px;
+  border-left: 2px solid #555;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.timeline-item .circle {
+  position: absolute;
+  left: -31px;
+  top: 5px;
+  width: 16px;
+  height: 16px;
+  background: #ff9800;
+  border-radius: 50%;
+  border: 2px solid #1e1e1e;
+  box-shadow: 0 0 0 2px #555;
+}
+
+.timeline-item .content {
+  margin-left: 20px;
+}
+
+.timeline-item h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.timeline-item .year {
+  display: block;
+  font-weight: bold;
+  color: #ff9800;
+  margin: 5px 0;
+}
+
+.timeline-item p {
+  margin: 5px 0;
+  color: #bbb;
+  line-height: 1.5;
+}
+
+/* Links inside timeline */
+.timeline-item a {
+  color: #ff5722;
+  font-weight: bold;
+  text-decoration: none;
+  border-bottom: 1px dashed #ff9800;
+  transition: color 0.3s;
+}
+
+.timeline-item a:hover {
+  color: #e64a19;
+  border-bottom: 1px solid #e64a19;
+}
