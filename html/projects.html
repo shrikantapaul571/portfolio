@@ -1,158 +1,97 @@
-<?php
-// require_once __DIR__ . "/php/db.php";
-include "php/db.php";
-
-$projects = [];
-$sql = "SELECT * FROM projects ORDER BY created_at DESC";
-$result = $conn->query($sql);
-
-if ($result && $result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $projects[] = $row;
-    }
-}
-
-$conn->close();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8" />
     <title>Projects - Shrikanta</title>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="../styles/navbar.css" />
     <link rel="stylesheet" href="../styles/projects.css" />
 </head>
 
 <body>
+
+    <!-- Navigation -->
     <header>
         <nav>
             <ul>
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="about.html">About Me</a></li>
                 <li><a href="skills.html">Skills</a></li>
-                <li><a href="projects.php" class="active">Projects</a></li>
+                <li><a href="projects.html" class="active">Projects</a></li>
                 <li><a href="design.html">Graphics Design</a></li>
                 <li><a href="research.html">Research & Publications</a></li>
                 <li><a href="resume.html">Resume/CV</a></li>
-                <li><a href="contact.php">Contact</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
+
 
     <main class="projects-page">
         <h2>My Projects</h2>
 
         <div class="projects-grid">
-            <?php foreach ($projects as $proj): ?>
-                <div class="project-card">
-                    <h3><?= htmlspecialchars($proj['title']) ?></h3>
-                    <p><?= htmlspecialchars($proj['description']) ?></p>
-                    <div class="project-links">
-                        <?php if (!empty($proj['github'])): ?>
-                            <a href="<?= $proj['github'] ?>" target="_blank"><i class="fab fa-github"></i> Code</a>
-                        <?php endif; ?>
-                        <?php if (!empty($proj['demo'])): ?>
-                            <a href="<?= $proj['demo'] ?>" target="_blank"><i class="fas fa-external-link-alt"></i> Demo</a>
-                        <?php endif; ?>
-                        <?php if (!empty($proj['video'])): ?>
-                            <a href="<?= $proj['video'] ?>" target="_blank"><i class="fas fa-video"></i> Video</a>
-                        <?php endif; ?>
-                    </div>
 
-                    <!-- Always show edit/delete buttons -->
-                    <div class="admin-actions">
-                        <button 
-                            class="icon-btn edit-btn" 
-                            onclick='requestEdit(
-                                <?= $proj['id'] ?>,
-                                <?= json_encode($proj['title']) ?>,
-                                <?= json_encode($proj['description']) ?>,
-                                <?= json_encode($proj['github']) ?>,
-                                <?= json_encode($proj['demo']) ?>,
-                                <?= json_encode($proj['video']) ?>
-                            )'
-                        >
-                            <i class="fas fa-edit"></i>
-                        </button>
+            <!-- Project 1 -->
+            <div class="project-card">
+                <h3>SmartFarmX Website</h3>
+                <p>A modern smart agriculture website focusing on IoT-based crop monitoring, automation, and data insights.</p>
 
-                        <button 
-                            class="icon-btn delete-btn" 
-                            onclick="requestDelete(<?= $proj['id'] ?>)"
-                        >
-                            <i class="fas fa-trash-alt"></i>
-                        </button>
-                    </div>
-
-
+                <div class="project-links">
+                    <!-- <a href="#" target="_blank"><i class="fab fa-github"></i> Code</a> -->
+                    <a href="https://smart-farm-x-web.vercel.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
                 </div>
-            <?php endforeach; ?>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card">
+                <h3>ipTV Watching Website</h3>
+                <p>A clean, fast, responsive IPTV streaming interface for accessing live TV channels through M3U links.</p>
+
+                <div class="project-links">
+                    <!-- <a href="#" target="_blank"><i class="fab fa-github"></i> Code</a> -->
+                    <a href="https://iptv-nine-mu.vercel.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card">
+                <h3>NeonTech – Demo Company Website</h3>
+                <p>A professional demo website for a tech company highlighting services, portfolio, contact page, and modern UI/UX.</p>
+
+                <div class="project-links">
+                    <!-- <a href="#" target="_blank"><i class="fab fa-github"></i> Code</a> -->
+                    <a href="https://neon-tech-lemon.vercel.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="project-card">
+                <h3>BookBin Website</h3>
+                <p>An online book exchange and marketplace platform supporting buying, selling, categories, and user accounts.</p>
+
+                <div class="project-links">
+                    <!-- <a href="#" target="_blank"><i class="fab fa-github"></i> Code</a> -->
+                    <a href="https://book-bin.vercel.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                </div>
+            </div>
+
         </div>
     </main>
 
-    <!-- Edit Project Modal -->
-    <div class="modal" id="editProjectModal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('editProjectModal')">&times;</span>
-            <h3>Edit Project</h3>
-            <form id="editProjectForm">
-                <input type="hidden" name="id" id="editId" />
-                <input type="text" name="title" id="editTitle" required />
-                <textarea name="description" id="editDescription" required></textarea>
-                <input type="url" name="github" id="editGithub" />
-                <input type="url" name="demo" id="editDemo" />
-                <input type="url" name="video" id="editVideo" />
-                <button type="submit">Update</button>
-            </form>
-        </div>
-    </div>
 
-    <!-- Floating Add Button -->
-    <button class="add-btn" id="openLogin"><i class="fas fa-plus"></i></button>
-
-    <!-- Login Modal (used for Add, Edit, Delete) -->
-    <div class="modal" id="loginModal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('loginModal')">&times;</span>
-            <h3>Admin Login</h3>
-            <form id="loginForm">
-                <input type="email" name="email" placeholder="Email" required />
-                <input type="password" name="password" placeholder="Password" required />
-                <button type="submit">Login</button>
-            </form>
-            <p id="loginError" style="color:red; display:none;">Invalid email or password.</p>
-        </div>
-    </div>
-
-    <!-- Add Project Modal -->
-    <div class="modal" id="addProjectModal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('addProjectModal')">&times;</span>
-            <h3>Add Project</h3>
-            <form id="addProjectForm">
-                <input type="text" name="title" placeholder="Project Title" required />
-                <textarea name="description" placeholder="Project Description" required></textarea>
-                <input type="url" name="github" placeholder="GitHub Link" />
-                <input type="url" name="demo" placeholder="Live Demo Link" />
-                <input type="url" name="video" placeholder="Video Link" />
-                <button type="submit">Upload</button>
-            </form>
-        </div>
-    </div>
-
+    <!-- Footer -->
     <footer>
         <p>© 2025 Shrikanta Paul | All Rights Reserved</p>
+
         <div class="footer-socials">
             <a href="https://www.facebook.com/shrikanta571" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.linkedin.com/in/shrikanta-paul-3a17b423a/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
             <a href="https://github.com/shrikantapaul571" target="_blank"><i class="fab fa-github"></i></a>
         </div>
     </footer>
 
-    <script src="../script.js"></script>
-
 </body>
-
 </html>
