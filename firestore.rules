@@ -1,0 +1,14 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Content collections shown on the public site.
+    // READ: anyone (so visitors see the content).
+    // WRITE: only a signed-in user (your admin account).
+    match /{collection}/{docId} {
+      allow read: if collection in ['education', 'experience', 'achievements', 'research', 'projects'];
+      allow write: if request.auth != null
+                   && collection in ['education', 'experience', 'achievements', 'research', 'projects'];
+    }
+  }
+}

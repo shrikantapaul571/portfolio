@@ -755,6 +755,15 @@ footer {
   padding: 30px 0;
   font-size: 0.9rem;
 }
+.admin-link {
+  color: var(--faint);
+  text-decoration: none;
+  opacity: 0.4;
+}
+.admin-link:hover {
+  color: var(--accent);
+  opacity: 1;
+}
 .footer-socials {
   margin-top: 12px;
 }
