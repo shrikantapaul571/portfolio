@@ -5,69 +5,16 @@ student at Daffodil International University.
 
 🔗 **Live:** https://portfolio-nine-kohl-95.vercel.app/
 
-A single-page, responsive site with a dark theme. Projects, Research,
-Experience, Education and Achievements are **content-managed** through a
-Firebase-backed admin panel — no code editing needed to update them.
-
----
+A single-page, responsive portfolio with a clean dark theme — showcasing
+research, projects, experience, education and graphics design work.
 
 ## Tech stack
-- **Frontend:** plain HTML, CSS, vanilla JavaScript (no framework)
-- **Backend / data:** Firebase (Firestore + Authentication)
-- **Hosting:** Vercel (static)
-- **Fonts/Icons:** Google Fonts (Poppins, Inter), Font Awesome
+- Frontend: HTML, CSS, vanilla JavaScript
+- Hosting: Vercel
 
 ## Features
-- One-page scroll layout with sticky nav, smooth scroll + scrollspy
+- One-page scroll layout with sticky nav, smooth scroll and scrollspy
 - Scroll-reveal animations, mobile menu, back-to-top
-- Resume preview (rendered PDF page images) + download
-- Admin panel (`/admin.html`): login, then add / edit / delete content
-- Public site loads dynamic sections from Firestore (with static fallback)
-
-## Project structure
-```
-index.html              Main single-page site
-admin.html              Admin login + content manager
-script.js               UI interactions (nav, scrollspy, reveal, form)
-js/
-  firebase-config.js    Firebase project config (public keys)
-  render.js             Loads dynamic sections from Firestore
-  admin.js              Admin auth + CRUD logic
-  gallery.js            Auto-cycling slideshows for Graphics Design
-styles/
-  onepage.css           Main site styles
-  admin.css             Admin panel styles
-assets/
-  Shrikantapaul_resume.pdf
-  resume/               Rendered resume preview images
-  img/                  Profile photo, certificate
-  designs/              Graphics design works (bookbin, smartfarmx, ...)
-```
-
-## Run locally
-Serve over HTTP (not `file://`, or the PDF/modules break):
-```bash
-# from the project folder
-python -m http.server 5500
-# open http://localhost:5500/
-```
-Or use the VS Code **Live Server** extension.
-
-## Managing content (no code)
-1. Go to `/admin.html` (or the small `·` link in the footer).
-2. Log in with your admin account.
-3. Add / edit / delete items. The site updates on refresh.
-
-## Deploy
-```bash
-git add -A && git commit -m "your message" && git push
-npx vercel --prod
-```
-
-## Notes
-- The Firebase `apiKey` is public by design; security is enforced by
-  Firestore security rules (public read, write restricted to the owner's UID).
-- To refresh the resume preview after replacing the PDF:
-  ```bash
-  pdftoppm -png -r 140 assets/Shrikantapaul_resume.pdf assets/resume/page
-  ```
+- Resume preview and download
+- Auto-cycling slideshows for design works
+- Contact form
