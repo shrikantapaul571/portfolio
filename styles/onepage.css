@@ -553,15 +553,21 @@ nav ul li a.active {
 }
 
 /* ===== Design gallery (auto slideshow) ===== */
+.design-grid {
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+}
+.design-card {
+  padding: 12px;
+}
 .slideshow {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 3;
-  border-radius: 10px;
+  aspect-ratio: 4 / 5;
+  border-radius: 8px;
   overflow: hidden;
   background: #000;
   border: 1px solid var(--border);
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 .slideshow img {
   position: absolute;
