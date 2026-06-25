@@ -18,3 +18,7 @@ desktop.ini
 *.log
 scratchpad/
 tmp/
+
+# Local-only reference docs (not needed in public repo)
+firestore.rules
+SETUP_FIREBASE.md

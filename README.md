@@ -38,8 +38,6 @@ styles/
   admin.css             Admin panel styles
 assets/                 Resume PDF + rendered preview images
 images/                 Profile, design works, certificate
-firestore.rules         Firestore security rules (public read, owner write)
-SETUP_FIREBASE.md       One-time Firebase setup guide
 ```
 
 ## Run locally
@@ -56,8 +54,6 @@ Or use the VS Code **Live Server** extension.
 2. Log in with your admin account.
 3. Add / edit / delete items. The site updates on refresh.
 
-First-time Firebase setup is documented in [SETUP_FIREBASE.md](SETUP_FIREBASE.md).
-
 ## Deploy
 ```bash
 git add -A && git commit -m "your message" && git push
@@ -66,7 +62,7 @@ npx vercel --prod
 
 ## Notes
 - The Firebase `apiKey` is public by design; security is enforced by
-  `firestore.rules` (public read, write restricted to the owner's UID).
+  Firestore security rules (public read, write restricted to the owner's UID).
 - To refresh the resume preview after replacing the PDF:
   ```bash
   pdftoppm -png -r 140 assets/Shrikantapaul_resume.pdf assets/resume/page
