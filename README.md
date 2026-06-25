@@ -33,11 +33,15 @@ js/
   firebase-config.js    Firebase project config (public keys)
   render.js             Loads dynamic sections from Firestore
   admin.js              Admin auth + CRUD logic
+  gallery.js            Auto-cycling slideshows for Graphics Design
 styles/
   onepage.css           Main site styles
   admin.css             Admin panel styles
-assets/                 Resume PDF + rendered preview images
-images/                 Profile, design works, certificate
+assets/
+  Shrikantapaul_resume.pdf
+  resume/               Rendered resume preview images
+  img/                  Profile photo, certificate
+  designs/              Graphics design works (bookbin, smartfarmx, ...)
 ```
 
 ## Run locally
