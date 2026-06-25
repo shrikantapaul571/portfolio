@@ -1,2 +1,20 @@
+# Vercel
 .vercel
+
+# Secrets / env
 .env*
+
+# Dependencies (if ever added)
+node_modules/
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+
+# Logs / temp
+*.log
+scratchpad/
+tmp/
