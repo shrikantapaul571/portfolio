@@ -30,10 +30,10 @@
 
     <!-- Login -->
     <div id="loginScreen" class="login-screen">
-      <form id="loginForm" class="login-box">
+      <form id="loginForm" class="login-box" autocomplete="off">
         <h1>Admin Login</h1>
-        <input id="loginEmail" type="email" placeholder="Email" required />
-        <input id="loginPassword" type="password" placeholder="Password" required />
+        <input id="loginEmail" type="email" placeholder="Email" required autocomplete="off" />
+        <input id="loginPassword" type="password" placeholder="Password" required autocomplete="new-password" />
         <button type="submit">Log in</button>
         <p id="loginError" class="login-error" style="display: none"></p>
         <a href="index.html" class="back">&larr; Back to site</a>
