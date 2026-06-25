@@ -3,7 +3,7 @@
 Personal portfolio of **Shrikanta Paul**, AI / ML Researcher and M.Sc. CSE
 student at Daffodil International University.
 
-🔗 **Live:** https://portfolio-nine-kohl-95.vercel.app/
+🔗 **Live:** https://spaul571.vercel.app/
 
 A single-page, responsive portfolio with a clean dark theme — showcasing
 research, projects, experience, education and graphics design work.
