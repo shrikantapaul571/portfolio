@@ -22,3 +22,6 @@ tmp/
 # Local-only reference docs (not needed in public repo)
 firestore.rules
 SETUP_FIREBASE.md
+
+# Archives / source drops (not needed in repo)
+*.zip
