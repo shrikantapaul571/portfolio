@@ -67,17 +67,45 @@ document.addEventListener("DOMContentLoaded", () => {
     revealEls.forEach((el) => el.classList.add("in"));
   }
 
-  // --- Contact form (frontend only) ---
+  // --- Contact form (sends via FormSubmit) ---
   const form = document.getElementById("contactForm");
   if (form) {
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const status = document.getElementById("formStatus");
+    const status = document.getElementById("formStatus");
+    const btn = form.querySelector("button[type='submit']");
+    const show = (msg, ok) => {
       status.style.display = "block";
-      status.style.color = "#7CFC00";
-      status.textContent =
-        "Thanks! Your message was submitted (frontend only, no backend yet).";
-      form.reset();
+      status.style.color = ok ? "#7CFC00" : "#ff6b6b";
+      status.textContent = msg;
+    };
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      btn.disabled = true;
+      const original = btn.textContent;
+      btn.textContent = "Sending...";
+      try {
+        const endpoint = form.action.replace(
+          "formsubmit.co/",
+          "formsubmit.co/ajax/"
+        );
+        const res = await fetch(endpoint, {
+          method: "POST",
+          headers: { Accept: "application/json" },
+          body: new FormData(form),
+        });
+        if (res.ok) {
+          show("Thanks! Your message has been sent.", true);
+          form.reset();
+        } else {
+          const data = await res.json().catch(() => ({}));
+          show(data.message || "Something went wrong. Please email me directly.", false);
+        }
+      } catch {
+        show("Network error. Please email me directly.", false);
+      } finally {
+        btn.disabled = false;
+        btn.textContent = original;
+      }
     });
   }
 });
