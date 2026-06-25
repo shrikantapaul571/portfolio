@@ -111,6 +111,8 @@ const SEED = {
   ],
 };
 
+let DB = null; // authenticated Firestore instance, set after init
+
 const $ = (id) => document.getElementById(id);
 const esc = (s = "") =>
   String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -122,6 +124,7 @@ if (!isConfigured()) {
 } else {
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
+  DB = db;
   const auth = getAuth(app);
 
   // Login
@@ -286,19 +289,21 @@ function resetForm(name) {
 
 // ---------- Seed import ----------
 window.importSeed = async function () {
+  if (!DB) return toast("Not logged in", true);
   if (!confirm("Import the current website content into the database? Run this only once.")) return;
-  const { getFirestore } = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js");
-  const { initializeApp } = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js");
-  const db = getFirestore(initializeApp(firebaseConfig, "seed-" + Date.now()));
-  let count = 0;
-  for (const name of Object.keys(SEED)) {
-    for (const item of SEED[name]) {
-      await addDoc(collection(db, name), { ...item, createdAt: serverTimestamp() });
-      count++;
+  try {
+    let count = 0;
+    for (const name of Object.keys(SEED)) {
+      for (const item of SEED[name]) {
+        await addDoc(collection(DB, name), { ...item, createdAt: serverTimestamp() });
+        count++;
+      }
     }
+    toast(`Imported ${count} items`);
+    location.reload();
+  } catch (ex) {
+    toast("Import failed: " + ex.message, true);
   }
-  toast(`Imported ${count} items`);
-  location.reload();
 };
 
 // ---------- Toast ----------
