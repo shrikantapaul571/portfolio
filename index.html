@@ -2,69 +2,584 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Home - Shrikanta</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shrikanta Paul | AI &amp; ML Researcher</title>
+    <meta
+      name="description"
+      content="Shrikanta Paul, AI and Machine Learning Researcher. M.Sc. CSE student exploring Artificial Intelligence, Machine Learning and Deep Learning."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="styles/navbar.css" />
-    <link rel="stylesheet" href="styles/home.css" />
+    <link rel="stylesheet" href="styles/onepage.css" />
   </head>
   <body>
-    <!-- Navigation -->
+    <!-- ===== Navigation ===== -->
     <header>
       <nav>
-        <ul>
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="html/about.html">About Me</a></li>
-          <li><a href="html/skills.html">Skills</a></li>
-          <li><a href="html/projects.html">Projects</a></li>
-          <li><a href="html/design.html">Graphics Design</a></li>
-          <li><a href="html/research.html">Research & Publications</a></li>
-          <li><a href="html/resume.html">Resume/CV</a></li>
-          <li><a href="html/contact.html">Contact</a></li>
+        <a href="#home" class="nav-brand">Shrikanta<span>.</span></a>
+        <button class="nav-toggle" aria-label="Menu">
+          <i class="fas fa-bars"></i>
+        </button>
+        <ul id="navMenu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#resume">Resume</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
+    <!-- ===== Hero / Home ===== -->
+    <section class="hero" id="home">
       <div class="hero-text">
-        <h2>Hello, I'm <span class="highlight">Shrikanta Paul</span></h2>
+        <span class="badge"><span class="dot"></span> Open to research &amp; collaboration</span>
+        <h1>Hi, I'm <span class="highlight">Shrikanta Paul</span></h1>
         <p class="roles">
-          <i class="fas fa-flask"></i> Researcher |
-          <i class="fas fa-paint-brush"></i> Designer |
-          <i class="fas fa-code"></i> Developer
+          <i class="fas fa-brain"></i> AI / ML Researcher &nbsp;
+          <i class="fas fa-network-wired"></i> Deep Learning &nbsp;
+          <i class="fas fa-chart-line"></i> Data Science
         </p>
-
-        <!-- Social Links -->
+        <p class="hero-affil">
+          <i class="fas fa-graduation-cap"></i> M.Sc. in CSE &amp; Research
+          Assistant · Daffodil International University
+        </p>
+        <p class="hero-lead">
+          Passionate about Artificial Intelligence, Machine Learning and Deep
+          Learning. I focus on simplifying complex technical concepts into
+          practical, real-world solutions through hands-on research and
+          experimentation.
+        </p>
+        <div class="hero-cta">
+          <a href="#portfolio" class="btn"
+            ><i class="fas fa-arrow-right"></i> See My Work</a
+          >
+          <a href="assets/Shrikantapaul_resume.pdf" download class="btn-ghost"
+            ><i class="fas fa-download"></i> Download CV</a
+          >
+        </div>
         <div class="social-links">
-          <a href="https://www.facebook.com/shrikanta571" target="_blank"
-            ><i class="fab fa-facebook"></i
+          <a href="https://www.facebook.com/spaul571" target="_blank" aria-label="Facebook"
+            ><i class="fab fa-facebook-f"></i
           ></a>
-          <a href="https://www.linkedin.com/in/shrikanta-paul-3a17b423a/" target="_blank"
-            ><i class="fab fa-linkedin"></i
+          <a
+            href="https://www.linkedin.com/in/spaul571/"
+            target="_blank"
+            aria-label="LinkedIn"
+            ><i class="fab fa-linkedin-in"></i
           ></a>
-          <a href="https://github.com/shrikantapaul571" target="_blank"
+          <a href="https://github.com/shrikantapaul571" target="_blank" aria-label="GitHub"
             ><i class="fab fa-github"></i
           ></a>
         </div>
-
-        <a href="html/projects.html" class="btn">See My Work</a>
       </div>
-
       <div class="hero-image">
-        <img src="images/profile1.png" alt="My Photo" />
+        <div class="frame">
+          <img src="images/profile1.png" alt="Shrikanta Paul" />
+        </div>
       </div>
     </section>
 
+    <!-- ===== About (Career Objective + Education + Activities) ===== -->
+    <section class="section" id="about">
+      <span class="eyebrow">Get to know me</span>
+      <h2 class="section-title">About Me</h2>
+      <p class="section-sub">Career objective, education &amp; activities</p>
+
+      <div class="about-intro">
+        <p>
+          I am from Cumilla and currently pursuing an
+          <strong>M.Sc. in Computer Science and Engineering</strong> at
+          <strong>Daffodil International University</strong>, after completing my
+          B.Sc. (CGPA 3.94/4.00).
+        </p>
+        <p>
+          I believe effective teaching involves simplifying complex technical
+          concepts into practical, real-world learning experiences. My approach
+          emphasizes hands-on learning, problem-solving and active engagement,
+          particularly in <strong>Artificial Intelligence</strong>,
+          <strong>Machine Learning</strong> and
+          <strong>Deep Learning</strong>. I focus on guiding learners to think
+          critically, apply concepts through coding and experimentation, and
+          build confidence in their technical abilities.
+        </p>
+      </div>
+
+      <!-- Education -->
+      <h3 class="subhead"><i class="fas fa-graduation-cap"></i> Education</h3>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h4>M.Sc. in Computer Science and Engineering (CSE)</h4>
+          <span class="year">2026 - Present</span>
+          <p><strong>Daffodil International University, Dhaka</strong></p>
+          <p>Expected Graduation: May 2027</p>
+        </div>
+        <div class="timeline-item">
+          <h4>B.Sc. in Computer Science and Engineering (CSE)</h4>
+          <span class="year">2022 - 2025</span>
+          <p><strong>Daffodil International University, Dhaka</strong></p>
+          <p>CGPA: 3.94 (Out of 4.00)</p>
+        </div>
+        <div class="timeline-item">
+          <h4>Higher Secondary Certificate (HSC), Science</h4>
+          <span class="year">2017 - 2018</span>
+          <p><strong>Cumilla Govt. City College, Cumilla</strong></p>
+          <p>GPA: 5.00 (Out of 5.00)</p>
+        </div>
+        <div class="timeline-item">
+          <h4>Secondary School Certificate (SSC), Science</h4>
+          <span class="year">2015 - 2016</span>
+          <p><strong>Bijoypur High School, Cumilla</strong></p>
+          <p>GPA: 5.00 (Out of 5.00)</p>
+        </div>
+      </div>
+
+      <!-- Co-Curricular -->
+      <h3 class="subhead"><i class="fas fa-people-group"></i> Co-Curricular Activities</h3>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h4>President, Sotota Songho (সততা-সংঘ - দুর্নীতি দমন কমিশন)</h4>
+          <span class="year">2016 - 2017</span>
+          <p>Bijoypur High School</p>
+        </div>
+        <div class="timeline-item">
+          <h4>School Sanitation &amp; Hygiene Education</h4>
+          <span class="year">2016</span>
+          <p>
+            Training course by <strong>BRAC</strong>.
+            <a href="images/brac.png" target="_blank">View Certificate</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Experience (+ Achievements) ===== -->
+    <section class="section" id="experience">
+      <span class="eyebrow">My journey</span>
+      <h2 class="section-title">Experience</h2>
+      <p class="section-sub">Research roles &amp; recognition</p>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <h4>Research Assistant, Department of Business Administration</h4>
+          <span class="year">January 2026 - Present</span>
+          <p>
+            Daffodil International University (under Dr. Md. Azizur Rahman)
+          </p>
+          <ul>
+            <li>
+              Assisted in proposing a research grant project under the HEAT UGC
+              Academic Transformation Fund (ATF).
+            </li>
+            <li>
+              Presented a research study on Bangladesh Railway ticket scalping
+              to Bangladesh Railway officials.
+            </li>
+          </ul>
+        </div>
+        <div class="timeline-item">
+          <h4>Research Assistant, NLP &amp; ML Research Lab</h4>
+          <span class="year">September 2025 - December 2025</span>
+          <p>Daffodil International University</p>
+          <ul>
+            <li>
+              Conducted research in Natural Language Processing, Machine
+              Learning and Deep Learning.
+            </li>
+            <li>Assisted faculty members with ongoing research projects.</li>
+            <li>
+              Supported the university's Deep Learning Bootcamp, helping students
+              understand advanced AI concepts and hands-on model development.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Achievements -->
+      <h3 class="subhead"><i class="fas fa-award"></i> Achievements</h3>
+      <ul class="achievements">
+        <li>
+          <strong>Dean's List Award</strong>, outstanding academic performance.
+          <span class="year">Fall 2024</span>
+        </li>
+        <li>
+          <strong>Dean's List Award</strong>, excellent academic standing.
+          <span class="year">Fall 2023</span>
+        </li>
+        <li>
+          <strong>24th Place</strong>, "Unlock the Algorithm" Programming
+          Contest. <span class="year">Fall 2023</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ===== Research & Publications ===== -->
+    <section class="section" id="research">
+      <span class="eyebrow">Academic work</span>
+      <h2 class="section-title">Research &amp; Publications</h2>
+      <p class="section-sub">Conference papers &amp; ongoing work</p>
+
+      <div class="cards-grid">
+        <div class="card">
+          <span class="tag">In Press, IEEE Xplore &amp; Scopus Indexed</span>
+          <h3>
+            Road Cleanliness Classification Using Deep Learning and Vision
+            Transformer with LIME-Based Explainability
+          </h3>
+          <p>
+            Presented at <strong>AISEI 2026</strong>, International Conference on
+            Artificial Intelligence for Sustainable Engineering and Innovation
+            (April 27-28, 2026), Jadara University, Jordan.
+          </p>
+        </div>
+        <div class="card">
+          <span class="tag">Accepted</span>
+          <h3>
+            YOLOv11-Based Detection of Vegetable Leaf Diseases: A Benchmark
+            Study on a Unified Multi-Crop Dataset with Severe Class Imbalance
+          </h3>
+          <p>
+            Accepted at <strong>ICEFronT 2026</strong>, International Conference
+            on Engineering Frontiers and Technology, MBSTU, Bangladesh.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Portfolio (Projects + Graphics Design) ===== -->
+    <section class="section" id="portfolio">
+      <span class="eyebrow">My work</span>
+      <h2 class="section-title">Portfolio</h2>
+      <p class="section-sub">Projects &amp; graphics design works</p>
+
+      <!-- Projects -->
+      <h3 class="subhead"><i class="fas fa-laptop-code"></i> Projects</h3>
+      <div class="cards-grid">
+        <div class="card">
+          <span class="tag">IoT • Smart Agriculture • May-Aug 2025</span>
+          <h3>SmartFarmX</h3>
+          <p>
+            IoT-based smart agriculture platform monitoring remote farm fields
+            without internet using LoRa communication, with real-time sensor
+            data visualization and a responsive web interface.
+          </p>
+          <div class="project-links">
+            <a href="https://smart-farm-x-web.vercel.app/" target="_blank"
+              ><i class="fas fa-external-link-alt"></i> Live Demo</a
+            >
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="tag">Web App</span>
+          <h3>IPTV Watching Website</h3>
+          <p>
+            A clean, fast, responsive IPTV streaming interface for accessing
+            live TV channels through M3U links.
+          </p>
+          <div class="project-links">
+            <a href="https://iptv-nine-mu.vercel.app/" target="_blank"
+              ><i class="fas fa-external-link-alt"></i> Live Demo</a
+            >
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="tag">Web / UI-UX</span>
+          <h3>NeonTech, Demo Company Website</h3>
+          <p>
+            A professional demo website for a tech company highlighting
+            services, portfolio, contact page, and modern UI/UX.
+          </p>
+          <div class="project-links">
+            <a href="https://neon-tech-lemon.vercel.app/" target="_blank"
+              ><i class="fas fa-external-link-alt"></i> Live Demo</a
+            >
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="tag">UI/UX • Marketplace • 2022</span>
+          <h3>BookBin</h3>
+          <p>
+            An online book exchange and marketplace supporting buying, selling
+            and exchanging books, built from wireframes and clickable prototypes
+            focused on user-friendly navigation.
+          </p>
+          <div class="project-links">
+            <a href="https://book-bin.vercel.app/" target="_blank"
+              ><i class="fas fa-external-link-alt"></i> Live Demo</a
+            >
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="tag">Web • Jan 2025 - Present</span>
+          <h3>Personal Portfolio Website</h3>
+          <p>
+            This responsive, interactive site highlighting my projects,
+            experience and skills, with smooth animations and dynamic content
+            using JavaScript, continuously improved.
+          </p>
+          <div class="project-links">
+            <a href="https://github.com/shrikantapaul571/portfolio" target="_blank"
+              ><i class="fab fa-github"></i> Source</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Graphics Design -->
+      <h3 class="subhead"><i class="fas fa-palette"></i> Graphics Design</h3>
+      <div class="cards-grid">
+        <div class="card design-card">
+          <h3>UI Mockup: BookBin</h3>
+          <div class="multi-images">
+            <img src="images/designs/ui1.1.png" alt="BookBin UI 1" />
+            <img src="images/designs/ui1.2.png" alt="BookBin UI 2" />
+          </div>
+          <a
+            href="https://drive.google.com/drive/folders/1dFiENhHYi3uqFHRtt2kC9nS1DutMg8PA?usp=sharing"
+            target="_blank"
+            >Show More</a
+          >
+        </div>
+        <div class="card design-card">
+          <h3>UI Mockup: SmartFarmX</h3>
+          <div class="multi-images">
+            <img src="images/designs/ui2.1.png" alt="SmartFarmX UI 1" />
+            <img src="images/designs/ui2.2.png" alt="SmartFarmX UI 2" />
+          </div>
+          <a
+            href="https://drive.google.com/drive/folders/19_RV44xCuXRyS_zGtEiZJJUvyyCZaxeF?usp=sharing"
+            target="_blank"
+            >Show More</a
+          >
+        </div>
+        <div class="card design-card">
+          <h3>Logo Design</h3>
+          <img src="images/designs/logo.png" alt="Logo Design" />
+          <a
+            href="https://drive.google.com/drive/folders/1LIZGwn8Xtza4l0kOhp_63oBq0ILiDCh_?usp=sharing"
+            target="_blank"
+            >Show More</a
+          >
+        </div>
+        <div class="card design-card">
+          <h3>Poster Design</h3>
+          <img src="images/designs/poster.jpg" alt="Poster Design" />
+          <a
+            href="https://drive.google.com/drive/folders/1N9jx-7cYmVI6q_qzzs6HKSzXKYJD4tTV?usp=sharing"
+            target="_blank"
+            >Show More</a
+          >
+        </div>
+        <div class="card design-card">
+          <h3>Card &amp; Packaging</h3>
+          <img src="images/designs/card.jpg" alt="Card & Packaging Design" />
+          <a
+            href="https://drive.google.com/drive/folders/13kSblbI6_4yY5yyubV-zOzgXqsFllXiB?usp=sharing"
+            target="_blank"
+            >Show More</a
+          >
+        </div>
+        <div class="card design-card">
+          <h3>Other Design</h3>
+          <img src="images/designs/other.jpg" alt="Other Design" />
+          <a
+            href="https://drive.google.com/drive/folders/1x_8MqnDj3zU004iTFVY1QnDr-uJ0KNbg?usp=sharing"
+            target="_blank"
+            >Show More</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Skills (matched to CV) ===== -->
+    <section class="section" id="skills">
+      <span class="eyebrow">What I work with</span>
+      <h2 class="section-title">Skills</h2>
+      <p class="section-sub">Tools &amp; technologies</p>
+
+      <div class="skills-block">
+        <h3><i class="fas fa-code"></i> Programming</h3>
+        <div class="skills-grid">
+          <div class="skill"><i class="fas fa-code"></i><span>C</span></div>
+          <div class="skill"><i class="fab fa-java"></i><span>Java</span></div>
+          <div class="skill">
+            <i class="fab fa-python"></i><span>Python</span>
+          </div>
+          <div class="skill"><i class="fab fa-html5"></i><span>HTML</span></div>
+          <div class="skill">
+            <i class="fab fa-css3-alt"></i><span>CSS</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="skills-block">
+        <h3><i class="fas fa-brain"></i> Artificial Intelligence &amp; ML</h3>
+        <div class="skills-grid">
+          <div class="skill">
+            <i class="fas fa-robot"></i><span>Machine Learning</span>
+          </div>
+          <div class="skill">
+            <i class="fas fa-network-wired"></i><span>Deep Learning</span>
+          </div>
+          <div class="skill">
+            <i class="fas fa-file-alt"></i><span>Research Paper Writing (LaTeX)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="skills-block">
+        <h3><i class="fas fa-paint-brush"></i> Design Tools</h3>
+        <div class="skills-grid">
+          <div class="skill">
+            <i class="fas fa-vector-square"></i><span>Adobe XD</span>
+          </div>
+          <div class="skill">
+            <i class="fas fa-image"></i><span>Adobe Photoshop</span>
+          </div>
+          <div class="skill">
+            <i class="fas fa-pen-nib"></i><span>Adobe Illustrator</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="skills-block">
+        <h3><i class="fas fa-video"></i> Video Editing</h3>
+        <div class="skills-grid">
+          <div class="skill">
+            <i class="fas fa-film"></i><span>Adobe Premiere Pro</span>
+          </div>
+          <div class="skill">
+            <i class="fas fa-clapperboard"></i><span>Filmora</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="skills-block">
+        <h3><i class="fas fa-tools"></i> Productivity</h3>
+        <div class="skills-grid">
+          <div class="skill">
+            <i class="fas fa-file-word"></i><span>Microsoft Word</span>
+          </div>
+          <div class="skill">
+            <i class="fas fa-file-excel"></i><span>Microsoft Excel</span>
+          </div>
+          <div class="skill">
+            <i class="fas fa-file-powerpoint"></i><span>Microsoft PowerPoint</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Resume ===== -->
+    <section class="section" id="resume">
+      <span class="eyebrow">My background</span>
+      <h2 class="section-title">Resume / CV</h2>
+      <p class="section-sub">Preview or download a copy</p>
+
+      <div class="resume-actions">
+        <a href="assets/Shrikantapaul_resume.pdf" download class="btn"
+          ><i class="fas fa-download"></i> Download CV</a
+        >
+      </div>
+
+      <div class="resume-preview">
+        <img src="assets/resume/page-1.png" alt="Resume page 1" loading="lazy" />
+        <img src="assets/resume/page-2.png" alt="Resume page 2" loading="lazy" />
+      </div>
+    </section>
+
+    <!-- ===== Contact (+ References) ===== -->
+    <section class="section" id="contact">
+      <span class="eyebrow">Let's talk</span>
+      <h2 class="section-title">Get in Touch</h2>
+      <p class="section-sub">Have a question or want to work together?</p>
+
+      <p id="formStatus" class="msg-status" style="display: none"></p>
+
+      <form class="contact-form" id="contactForm">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+
+      <div class="contact-social">
+        <h3>Or connect with me</h3>
+        <a href="https://www.facebook.com/spaul571" target="_blank"
+          ><i class="fab fa-facebook"></i
+        ></a>
+        <a
+          href="https://www.linkedin.com/in/spaul571/"
+          target="_blank"
+          ><i class="fab fa-linkedin"></i
+        ></a>
+        <a href="https://github.com/shrikantapaul571" target="_blank"
+          ><i class="fab fa-github"></i
+        ></a>
+      </div>
+
+      <!-- References (hidden for now)
+      <h3 class="subhead"><i class="fas fa-user-check"></i> References</h3>
+      <div class="ref-grid">
+        <div class="ref-card">
+          <h4>Dr. Md. Azizur Rahman</h4>
+          <p class="role">Associate Professor &amp; Head</p>
+          <p>Department of Business Administration</p>
+          <p>Faculty of Business &amp; Entrepreneurship, DIU</p>
+          <p><i class="fas fa-phone"></i> +880 1847-334910</p>
+          <p>
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:azizur.bba@diu.edu.bd">azizur.bba@diu.edu.bd</a>
+          </p>
+          <p><em>Relationship: Research Supervisor</em></p>
+        </div>
+        <div class="ref-card">
+          <h4>Mr. Shahadat Hossain</h4>
+          <p class="role">Assistant Professor</p>
+          <p>Department of Computer Science and Engineering</p>
+          <p>Faculty of Science and Information Technology, DIU</p>
+          <p><i class="fas fa-phone"></i> +880 1624-823181</p>
+          <p>
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:shahadat.cse@diu.edu.bd">shahadat.cse@diu.edu.bd</a>
+          </p>
+          <p><em>Relationship: BSc Thesis Supervisor</em></p>
+        </div>
+      </div>
+      -->
+    </section>
+
+    <!-- ===== Footer ===== -->
     <footer>
-      <p>© 2025 Shrikanta Paul | All Rights Reserved</p>
+      <p>© 2026 Shrikanta Paul | All Rights Reserved</p>
       <div class="footer-socials">
-        <a href="https://www.facebook.com/shrikanta571" target="_blank"
+        <a href="https://www.facebook.com/spaul571" target="_blank"
           ><i class="fab fa-facebook-f"></i
         ></a>
-        <a href="https://www.linkedin.com/in/shrikanta-paul-3a17b423a/" target="_blank"
+        <a
+          href="https://www.linkedin.com/in/spaul571/"
+          target="_blank"
           ><i class="fab fa-linkedin-in"></i
         ></a>
         <a href="https://github.com/shrikantapaul571" target="_blank"
@@ -72,8 +587,11 @@
         ></a>
       </div>
     </footer>
+
+    <button class="to-top" id="toTop" aria-label="Back to top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
   </body>
 </html>
-
-
-

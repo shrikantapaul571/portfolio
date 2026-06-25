@@ -1,124 +1,83 @@
-// === Modal Helpers ===
-function openModal(id) {
-  document.getElementById(id).classList.add("show");
-}
-function closeModal(id) {
-  document.getElementById(id).classList.remove("show");
-}
+// ===== One-Page Portfolio - interactions =====
 
-// === Require Login Every Time ===
-function requireLogin(callback) {
-  openModal("loginModal");
+document.addEventListener("DOMContentLoaded", () => {
+  const navMenu = document.getElementById("navMenu");
+  const navToggle = document.querySelector(".nav-toggle");
+  const navLinks = Array.from(navMenu.querySelectorAll("a"));
+  const sections = navLinks
+    .map((a) => document.querySelector(a.getAttribute("href")))
+    .filter(Boolean);
+  const toTop = document.getElementById("toTop");
 
-  const loginForm = document.getElementById("loginForm");
+  // --- Mobile menu toggle ---
+  navToggle.addEventListener("click", () => navMenu.classList.toggle("open"));
 
-  async function handler(e) {
-    e.preventDefault();
+  // Close mobile menu after a link is clicked
+  navLinks.forEach((link) =>
+    link.addEventListener("click", () => navMenu.classList.remove("open"))
+  );
 
-    const formData = new FormData(loginForm);
-
-    const response = await fetch("php/login.php", {
-      method: "POST",
-      body: formData
-    });
-
-    const text = await response.text();
-
-    if (text.includes("success")) {
-      closeModal("loginModal");
-      document.getElementById("loginError").style.display = "none";
-
-      // Remove listener to prevent duplicates
-      loginForm.removeEventListener("submit", handler);
-
-      // Run the protected action
-      callback();
-    } else {
-      document.getElementById("loginError").style.display = "block";
+  // --- Scrollspy: highlight nav link of section in view ---
+  const spy = () => {
+    const pos = window.scrollY + window.innerHeight * 0.3;
+    let current = sections[0];
+    for (const sec of sections) {
+      if (sec.offsetTop <= pos) current = sec;
     }
+    navLinks.forEach((link) =>
+      link.classList.toggle(
+        "active",
+        link.getAttribute("href") === "#" + current.id
+      )
+    );
+
+    // Back-to-top visibility
+    toTop.classList.toggle("show", window.scrollY > 400);
+  };
+
+  window.addEventListener("scroll", spy, { passive: true });
+  spy();
+
+  // --- Back to top ---
+  toTop.addEventListener("click", () =>
+    window.scrollTo({ top: 0, behavior: "smooth" })
+  );
+
+  // --- Scroll reveal animations ---
+  const revealEls = document.querySelectorAll(
+    ".timeline-item, .skill, .card, .achievements li, .ref-card, .about-intro, .subhead, .resume-frame, .resume-actions, .contact-form, .contact-social"
+  );
+  revealEls.forEach((el) => el.classList.add("reveal"));
+
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry, i) => {
+          if (entry.isIntersecting) {
+            entry.target.style.transitionDelay = (i % 6) * 60 + "ms";
+            entry.target.classList.add("in");
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+    revealEls.forEach((el) => io.observe(el));
+  } else {
+    revealEls.forEach((el) => el.classList.add("in"));
   }
 
-  loginForm.addEventListener("submit", handler);
-}
-
-// === Add Project Flow ===
-document.getElementById("openLogin").addEventListener("click", () => {
-  requireLogin(() => {
-    openModal("addProjectModal");
-  });
-});
-
-document.getElementById("addProjectForm").addEventListener("submit", async function (e) {
-  e.preventDefault();
-
-  const formData = new FormData(this);
-
-  const response = await fetch("php/add_project.php", {
-    method: "POST",
-    body: formData
-  });
-
-  const text = await response.text();
-  alert(text);
-
-  if (text.includes("added")) {
-    closeModal("addProjectModal");
-    window.location.href = "projects.php";
+  // --- Contact form (frontend only) ---
+  const form = document.getElementById("contactForm");
+  if (form) {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const status = document.getElementById("formStatus");
+      status.style.display = "block";
+      status.style.color = "#7CFC00";
+      status.textContent =
+        "Thanks! Your message was submitted (frontend only, no backend yet).";
+      form.reset();
+    });
   }
 });
-
-// === Edit Project Flow ===
-function requestEdit(id, title, description, github, demo, video) {
-  requireLogin(() => {
-    // Fill modal with project data AFTER login succeeds
-    document.getElementById("editId").value = id;
-    document.getElementById("editTitle").value = title;
-    document.getElementById("editDescription").value = description;
-    document.getElementById("editGithub").value = github;
-    document.getElementById("editDemo").value = demo;
-    document.getElementById("editVideo").value = video;
-
-    openModal("editProjectModal");
-  });
-}
-
-document.getElementById("editProjectForm").addEventListener("submit", async function (e) {
-  e.preventDefault();
-
-  const formData = new FormData(this);
-
-  const response = await fetch("php/edit_project.php", {
-    method: "POST",
-    body: formData
-  });
-
-  const text = await response.text();
-  alert(text);
-
-  if (text.includes("edited")) {
-    closeModal("editProjectModal");
-    window.location.href = "projects.php";
-  }
-});
-
-// === Delete Project Flow ===
-function requestDelete(id) {
-  requireLogin(() => {
-    if (!confirm("Are you sure you want to delete this project?")) return;
-
-    const formData = new FormData();
-    formData.append("id", id);
-
-    fetch("php/delete_project.php", {
-      method: "POST",
-      body: formData
-    })
-      .then(res => res.text())
-      .then(text => {
-        alert(text);
-        if (text.includes("deleted")) {
-          window.location.href = "projects.php";
-        }
-      });
-  });
-}
