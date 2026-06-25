@@ -194,6 +194,36 @@ a { color: var(--accent); }
 .form-actions button[type="submit"] { background: var(--grad); color: #1a1205; }
 .form-actions button.ghost { background: transparent; border: 1px solid var(--border); color: var(--muted); }
 
+/* Messages */
+.msg-list { display: grid; gap: 10px; }
+.msg {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+.msg-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+.msg-from { font-size: 0.9rem; }
+.msg-actions { display: flex; align-items: center; gap: 10px; }
+.msg-when { color: var(--muted); font-size: 0.78rem; }
+.msg-actions button {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.msg-actions button.danger:hover { color: #ff6b6b; border-color: #ff6b6b; }
+.msg-body { color: var(--text); font-size: 0.9rem; white-space: pre-wrap; }
+
 /* Toast */
 .toast {
   position: fixed;

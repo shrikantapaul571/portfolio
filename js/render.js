@@ -10,6 +10,8 @@ import {
   getFirestore,
   collection,
   getDocs,
+  addDoc,
+  serverTimestamp,
   query,
   orderBy,
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
@@ -101,9 +103,29 @@ async function renderCollection(db, name) {
   }
 }
 
+// Also save contact submissions to Firestore (in addition to the email).
+function wireContactStore(db) {
+  const form = document.getElementById("contactForm");
+  if (!form) return;
+  form.addEventListener("submit", () => {
+    const fd = new FormData(form);
+    const name = (fd.get("name") || "").toString().trim().slice(0, 200);
+    const email = (fd.get("email") || "").toString().trim().slice(0, 200);
+    const message = (fd.get("message") || "").toString().trim().slice(0, 5000);
+    if (!name || !email || !message) return;
+    addDoc(collection(db, "messages"), {
+      name,
+      email,
+      message,
+      createdAt: serverTimestamp(),
+    }).catch((e) => console.warn("[messages]", e.message));
+  });
+}
+
 (async function init() {
   if (!isConfigured()) return; // not set up yet -> static content stays
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
+  wireContactStore(db);
   await Promise.all(Object.keys(targets).map((name) => renderCollection(db, name)));
 })();

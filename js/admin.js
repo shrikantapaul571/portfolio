@@ -188,6 +188,60 @@ function buildDashboard(db) {
     $(`cancel-${name}`).addEventListener("click", () => resetForm(name));
     loadList(db, name);
   });
+
+  buildMessagesPanel(db);
+}
+
+// ---------- Contact messages (read-only) ----------
+function buildMessagesPanel(db) {
+  const panel = document.createElement("section");
+  panel.className = "panel";
+  panel.innerHTML = `
+    <h2><i class="fas fa-envelope"></i> Contact Messages</h2>
+    <div class="msg-list" id="list-messages"><p class="loading">Loading...</p></div>`;
+  $("panels").appendChild(panel);
+  loadMessages(db);
+}
+
+async function loadMessages(db) {
+  const wrap = $("list-messages");
+  try {
+    const snap = await getDocs(query(collection(db, "messages"), orderBy("createdAt", "desc")));
+    if (snap.empty) {
+      wrap.innerHTML = `<p class="empty">No messages yet.</p>`;
+      return;
+    }
+    wrap.innerHTML = snap.docs
+      .map((d) => {
+        const m = d.data();
+        const when = m.createdAt?.toDate ? m.createdAt.toDate().toLocaleString() : "";
+        return `<div class="msg">
+          <div class="msg-head">
+            <span class="msg-from"><strong>${esc(m.name)}</strong> &lt;${esc(m.email)}&gt;</span>
+            <span class="msg-actions">
+              <span class="msg-when">${esc(when)}</span>
+              <button data-delmsg="${d.id}" class="danger"><i class="fas fa-trash"></i></button>
+            </span>
+          </div>
+          <p class="msg-body">${esc(m.message)}</p>
+        </div>`;
+      })
+      .join("");
+    wrap.querySelectorAll("[data-delmsg]").forEach((b) =>
+      b.addEventListener("click", async () => {
+        if (!confirm("Delete this message?")) return;
+        try {
+          await deleteDoc(doc(db, "messages", b.dataset.delmsg));
+          loadMessages(db);
+          toast("Deleted");
+        } catch (ex) {
+          toast("Error: " + ex.message, true);
+        }
+      })
+    );
+  } catch (ex) {
+    wrap.innerHTML = `<p class="empty">Error: ${esc(ex.message)}</p>`;
+  }
 }
 
 async function loadList(db, name) {
